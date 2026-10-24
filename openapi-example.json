@@ -1,0 +1,15 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "Demo Document API", "version": "1.0"},
+  "paths": {
+    "/documents": {
+      "get": {"operationId": "find_documents", "summary": "查询文档系统的草稿"},
+      "post": {
+        "operationId": "save_document",
+        "summary": "保存文档草稿",
+        "requestBody": {"content": {"application/json": {"schema": {"type": "object", "properties": {"title": {"type": "string"}, "body": {"type": "string"}}, "required": ["title", "body"]}}}}
+      }
+    },
+    "/documents/{id}": {"get": {"summary": "通过编号回查文档"}}
+  }
+}

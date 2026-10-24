@@ -1,0 +1,82 @@
+[
+  {
+    "name": "list_tasks",
+    "description": "查询研发系统任务；project 为项目名称，可省略。返回原始任务状态和截止日期。",
+    "base_url": "http://127.0.0.1:8876",
+    "path": "/tasks",
+    "method": "GET",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "create_requirement",
+    "description": "创建研发需求。必须先明确项目、标题和描述。写入需要用户确认。",
+    "base_url": "http://127.0.0.1:8876",
+    "path": "/requirements",
+    "method": "POST",
+    "verify_path": "/requirements/{id}",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project",
+        "title",
+        "description"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "list_documents",
+    "description": "查询文档系统的已保存文档。",
+    "base_url": "http://127.0.0.1:8877",
+    "path": "/documents",
+    "method": "GET",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "create_document",
+    "description": "在文档系统保存草稿。title 是标题，body 是正文；周报须注明任务来源，不得编造完成情况。需要用户确认。",
+    "base_url": "http://127.0.0.1:8877",
+    "path": "/documents",
+    "method": "POST",
+    "verify_path": "/documents/{id}",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "body"
+      ],
+      "additionalProperties": false
+    }
+  }
+]

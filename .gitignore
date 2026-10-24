@@ -1,0 +1,10 @@
+data/
+__pycache__/
+.env
+.env.*
+!.env.example
+*.dpapi
+*.db
+*.db-shm
+*.db-wal
+*.log
